@@ -1,0 +1,140 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  color: black;
+  font-family: Tahoma;
+  font-size: 16px;
+}
+
+h1, p {
+  margin: 1em;
+  text-align: left;
+  padding: 10px;
+  padding-left: 20px;
+  max-width:1200px;
+}
+
+form {
+  width: 100vw;
+  max-width: 1200px;
+  min-width: 300px;
+  margin: 0;
+  padding-bottom: 2em;
+  padding-left: 3em;
+}
+
+fieldset {
+  border: none;
+  padding: 1rem 0;
+  border-bottom: 3px;
+}
+
+fieldset legend {
+    font-weight:bold;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+fieldset label input[name="geschlecht"] {
+  margin-top: 6px; 
+  margin-bottom: 2px;
+}
+
+fieldset label input[name="pal-score"] {
+  margin-top: 3px; 
+  margin-bottom: 2px;
+}
+
+
+fieldset label input[type="checkbox"] {
+  margin-top: 0px; 
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+fieldset label {
+  text-align: left;
+}
+
+
+label {
+  margin: 0.5rem 0;
+}
+
+input,
+textarea,
+select {
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+}
+
+
+input, textarea {
+  background-color: white;
+  border: 1px solid white;
+  color: #ffffff;
+}
+
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+  max-width: 500px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 60%;
+  margin: 1em auto;
+  height: 2em;
+  font-size: 1.1rem;
+  background-color: #3b3b4f;
+  border-color: white;
+  min-width: 300px;
+}
+
+.geschlecht {
+    padding-top: 2em;
+}
+
+.gewicht {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 2em;
+}
+
+.gewicht label {
+  width: 280px; 
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.gewicht select {
+  width: 230px;
+   margin-top: 2px;       
+  padding: 6px 10px;      
+  font-size: 16px;
+}
+
+.lifestyle label {
+  display: flex;
+  align-items: middle; 
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.lifestyle input[type="radio"] {
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.lifestyle span {
+  line-height: 1.5;
+}

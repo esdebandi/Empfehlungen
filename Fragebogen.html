@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ernährungsempfehlungen</title>
+    <link rel="stylesheet" href="Fragebogen.css" />
+  </head>
+  <body>
+    <h1>Vorfragen</h1>
+    <p>Bevor wir Ihnen Ernährungsempfehlungen vorschlagen würden wir Sie um einige Angaben über Ihre Person bitten. Darauf basierend werden die Empfehlungen angepasst, sodass Sie besser auf Sie zugeschnitten sind.</p>
+    <p>Zunächst würden wir gern eine grobe Einschätzung Ihres täglichen Kalorienverbrauchs berechnen. Dafür benötigen wir Ihr Geschlecht, Ihr ungefähres Gewicht und das Ausmaß Ihrer täglichen Aktivität.</p>
+    <form>
+      <fieldset required>
+        <legend class="geschlecht">Geschlecht</legend>
+        <label for="männlich"><input id="männlich" type="radio" name="geschlecht" class="inline" /> männlich</label>
+        <label for="weiblich"><input id="weiblich" type="radio" name="geschlecht" class="inline" /> weiblich</label>
+        <label for="divers"><input id="divers" type="radio" name="geschlecht" class="inline" /> divers</label>
+      </fieldset>
+      <fieldset required>
+        <div class="gewicht">
+            <label for="gewicht">Wie viel wiegen Sie aktuell in etwa?</label>
+            <select id="gewicht" name="gewicht">
+                <option value="">(Ihr geschätztes Gewicht)</option>
+                <option value="1">unter 40kg</option>
+                <option value="2">40-55kg</option>
+                <option value="3">55-70kg</option>
+                <option value="4">70-85kg</option>
+                <option value="5">85-100kg</option>
+                <option value="6">über 100kg</option>
+            </select>
+        </div>
+      </fieldset>
+      <fieldset required class="pal-score" >
+        <legend>Nun geht es darum, wie aktiv Sie in Ihrem Alltag sind. Welcher dieser drei Stufen an täglicher Aktivität entspricht Ihnen am ehesten?</legend>
+        <label class="pal-score" for="pal_1.4"><input id="pal_1.4" type="radio" name="pal-score" class="inline"  /> Personen mit einem wenig
+            aktiven Lebensstil im Alltag, die ihre Arbeitszeit sitzend im Büro verbringen, keine regelmäßigen sportlichen Aktivitäten ausführen, 
+            motorisierte Transportmittel nutzen und ihre Freizeit überwiegend mit sitzenden Tätigkeiten verbringen.</label>
+        <label class="pal-score" for="pal_1.7"><input id="pal_1.7" type="radio" name="pal-score" class="inline"  /> Personen, die ihre 
+            Arbeitszeit zwar vorwiegend sitzend verbringen, aber ansonsten einen aktiven Lebensstil haben, also regelmäßig zu Fuß gehen oder das 
+            Fahrrad als Transportmittel nutzen und sich mehrmals in der Woche mind. 30 bis 60 Minuten sportlich betätigen.</label>
+        <label class="pal-score" for="pal_2"><input id="pal_2" type="radio" name="pal-score" class="inline"  /> Personen, die eine körperlich
+            anstrengende berufliche Arbeit ausführen oder sehr aktive Freizeittätigkeiten haben.</label>
+        </fieldset>
+      <fieldset required class="lifestyle" >
+        <legend>Welcher dieser Lebensstile passt am besten zu Ihnen bzw. für welchen dieser Lebensstile hätten Sie am liebsten Empfehlungen?</legend>
+        <label for="sport">
+          <input id="sport" type="radio" name="lifestyle" class="inline" />
+          <span><strong>Sportler*in:</strong>wie kann ich mich so ernähren, dass ich in meiner sportlichen 
+            Aktivität optimal versorgt und gleichzeitig kein gesundheitliches Risiko eingehe?</span>
+        </label>
+        <label for="arbeit">
+          <input id="arbeit" type="radio" name="lifestyle" class="inline" />
+          <span><strong>Berustätige*r:</strong>wie kann ich bei langen Arbeitszeiten, kurzer Mittagspause 
+            und/oder einer nicht so guten Kantine trotzdem eine gesunde Ernährung umsetzen?</span>
+        </label>
+        <label for="senior">
+          <input id="senior" type="radio" name="lifestyle" class="inline" />
+          <span><strong>Senior*in:</strong>wie kann ich mit dem zunehmenden Alter meine Gesundheit 
+            unterstützen und Krankheiten vorbeugen?</span>
+          </label>
+      </fieldset>
+      <fieldset class="add-ons" >
+        <legend>Nun gibt es noch einige Zusatzempfehlungen. Wählen Sie bitte die Themen aus, für die Sie gern weitere Empfehlungen erhalten würden.</legend>
+        <legend>(Sie können auch keine der Zusatzempfehlungen auswählen)</legend>
+        <label class="add-ons" for="vegan"><input id="vegan" type="checkbox" name="add-ons" class="inline" /><strong>Vegane Ernährung:</strong></label>
+        <label class="add-ons" for="nachhaltig"><input id="nachhaltig" type="checkbox" name="add-ons" class="inline" /><strong>Nachhaltige Ernährung:</strong></label>
+        <label class="add-ons" for="abnehmen"><input id="abnehmen" type="checkbox" name="add-ons" class="inline" /><strong>Gewicht Abnehmen:</strong></label>
+        <label class="add-ons" for="zunehmen"><input id="zunehmen" type="checkbox" name="add-ons" class="inline" /><strong>Gewicht zunehmen:</strong></label>
+        <label class="add-ons" for="diabetes"><input id="diabetes" type="checkbox" name="add-ons" class="inline" /><strong>Ernährung bei Diabetes Typ I / Typ II:</strong></label>
+        <label class="add-ons" for="bluthochdruck"><input id="bluthochdruck" type="checkbox" name="add-ons" class="inline" /><strong>Ernährung bei Bluthochdruck:</strong></label>
+      </fieldset>
+    </form>
+
+
+    <script>
+        cc_m_low = [
+          [1,1,1,0.75,0.75],
+          [1,1,1,1,1],
+          [1.25,1.25,1,1,1],
+          [1.25,1.25,1.25,1.25,1.25],
+          [1.5,1.25,1.25,1.25,1.25],
+          [1.5,1.5,1.5,1.25,1.25]
+        ];
+
+        if (ausgelesenesGeschlecht == "männlich" & ausgelesenerPAL == "niedrig")
+          cc_factor = cc_m_low[1,2];
+        } else (ausgelesenesGeschlecht == "weiblich" & ausgelesenerPAL == "niedrig") {
+          cc_factor = cc_w_low[1,2];
+        }
+    </script>
+
+  </body>
+</html>
