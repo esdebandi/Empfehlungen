@@ -31,7 +31,11 @@ section {
   height: auto;
 }
 
-ul {
+.bewegung {
   line-height: 1.7;
 }
 
+.textarea.is-between {
+  height: 2.4em;
+  min-height: 150px;
+}
