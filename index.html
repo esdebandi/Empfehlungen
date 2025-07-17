@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ernährungsempfehlungen</title>
+    <title>ESS-O-MAT</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <link rel="stylesheet" href="style_empfehlungen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -53,15 +56,18 @@
                                         <option value="1">männlich</option>
                                         <option value="2">weiblich</option>
                                     </select>
+
                                 </div>
+                                <span class="button is-light" id="toggleButton">Informationen für Menschen mit diversem
+                                    Geschlecht</span>
+
                             </div>
                             <div class="toggle-container">
-                                <span class="button" id="toggleButton">für diverse Personen (bitte klicken)</span>
+
                                 <div class="pop-up" id="textfeld" style="display: none;">
-                                    <textarea class="textarea is-between" readonly>Diese Angabe dient lediglich der Bestimmung des Kalorienverbrauches, welcher sich bei männlichen und weiblichen Personen statistisch leicht unterscheidet. Bisher gibt es noch keine Referenzwerte für Personen mit diversem Geschlecht. 
-Schätzen Sie bitte selbst ein, ob Sie 
-  - eher kräftig sind und/oder einen eher hohen Energiebedarf haben (die männliche Option), 
-  - oder ob Sie eher zierlich sind und/oder einen eher geringen Energiebedarf haben (die weibliche Option).</textarea>
+                                    <textarea class="textarea is-between has-text-grey"
+                                        style="border: 0px; padding: 0px; margin-top: 15px;"
+                                        readonly>Die Geschlechtsangabe dient lediglich der Bestimmung des Kalorienverbrauches, welcher sich bei männlichen und weiblichen Personen statistisch leicht unterscheidet. Bisher gibt es noch keine Referenzwerte für Personen mit diversem Geschlecht. Schätzen Sie bitte selbst ein, ob Sie eher kräftig sind und/oder einen eher hohen Energiebedarf haben (die männliche Option) oder ob Sie eher zierlich sind und/oder einen eher geringen Energiebedarf haben (die weibliche Option).</textarea>
                                 </div>
                             </div>
                         </div>
@@ -243,9 +249,10 @@ Schätzen Sie bitte selbst ein, ob Sie
         <div class="container">
 
             <h1 class="title">
-                Allgemeine Ernährungsempfehlungen
+                Ihre Empfehlungen
             </h1>
-            <div class="box">
+            <div class="box content" name="anchor">
+                <h1 class="subtitle is-3">Allgemeines</h1>
                 <div class="content">
                     <h1 class="title is-4">Am besten Wasser trinken</h1>
                     <div class="columns">
@@ -1508,7 +1515,7 @@ Schätzen Sie bitte selbst ein, ob Sie
 
 
 
-            <div class="box" id="e_berufstaetige" style="display: none;">
+            <div class="box" id="e_berufstaetige" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Empfehlungen für Berufstätige</h1>
                     <h2 class="title is-4">Essen am Arbeitsplatz ohne Kantine</h2>
@@ -1596,7 +1603,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_senioren" style="display: none;">
+            <div class="box" id="e_senioren" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Empfehlungen für Senior:innen</h1>
                     <h2 class="title is-4">Veränderungen im Alter</h2>
@@ -1690,7 +1697,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_sportler" style="display: none;">
+            <div class="box" id="e_sportler" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Empfehlungen für Sportler:innen</h1>
                     <h2 class="title is-4">Flüssigkeitszufuhr</h2>
@@ -1813,7 +1820,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_vegan" style="display: none;">
+            <div class="box" id="e_vegan" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Vegane Ernährung</h1>
                     <div>
@@ -1907,7 +1914,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_sustainable" style="display: none;">
+            <div class="box" id="e_sustainable" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Nachhaltige Ernährung</h1>
                     <h2 class="title is-4">Getränke</h2>
@@ -1951,7 +1958,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_weightloss" style="display: none;">
+            <div class="box" id="e_weightloss" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Tipps für Personen die abnehmen wollen</h1>
                     <div>
@@ -2011,7 +2018,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_weightgain" style="display: none;">
+            <div class="box" id="e_weightgain" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Tipps für Personen die zunehmen wollen</h1>
                     <div>
@@ -2051,7 +2058,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_nutriscore" style="display: none;">
+            <div class="box" id="e_nutriscore" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Einschätzung von Nährwerttabellen und Nutri-Scores</h1>
                     <h2 class="title is-4">Nährwerttabellen</h2>
@@ -2153,7 +2160,7 @@ Schätzen Sie bitte selbst ein, ob Sie
                 </div>
             </div>
 
-            <div class="box" id="e_foodlabel" style="display: none;">
+            <div class="box" id="e_foodlabel" style="display: none;" name="anchor">
                 <div class="content">
                     <h1 class="title is-3">Siegel, Label, Zertifikate - was bedeutet das alles?</h1>
                     <div>
@@ -2303,7 +2310,45 @@ Schätzen Sie bitte selbst ein, ob Sie
 
                 </div>
             </div>
+
+
+
+        </div>
     </section>
+
+    <section style="padding-bottom: 25px;">
+
+        <div class="container" style="margin-top: 48px; max-width: 600px;">
+            <div class="content is-size-7 has-text-centered">
+
+                Diese Website sammelt keine persönlichen Daten. Sie verwendet keine Cookies oder Dienste Dritter mit
+                Ausnahme der extern geladenen Bibliotheken <i>Bulma</i> und <i>Font Awesome</i>.
+
+            </div>
+            <br>
+
+        </div>
+
+
+
+        <div class="buttons is-centered">
+
+            <a class="button is-outlined is-dark" href="imprint.html" style="width: auto;">Impressum</a>
+        </div>
+
+
+
+
+    </section>
+
+    <div id="button_up" onclick="scrollToPreviousAnchor();"
+        style="display: flex; text-align: center; width: 80px; justify-content: center; align-items: center; height: 80px; border-radius: 50px; background-color: #fff; position: fixed; right: 10px; bottom: 100px; border: 1px solid #888;">
+        <span class="icon fa-2x"><i class="fa-solid fa-arrow-up"></i></span>
+    </div>
+    <button id="button_down" onclick="scrollToNextAnchor();"
+        style="display: flex; text-align: center; width: 80px; justify-content: center; align-items: center; height: 80px; border-radius: 50px; background-color: #fff; position: fixed; right: 10px; bottom: 10px; border: 1px solid #888;">
+        <span class="icon fa-2x"><i class="fa-solid fa-arrow-down"></i></span>
+    </button>
 
 
     <script>
@@ -2539,7 +2584,43 @@ Schätzen Sie bitte selbst ein, ob Sie
 
 
 
-            alert("Factor: " + factor);
+            //alert("Factor: " + factor);
+
+        }
+
+        function scrollToNextAnchor() {
+
+            const anchors = Array.from(document.querySelectorAll('div[name="anchor"]'));
+            const currentY = window.scrollY;
+
+            for (let anchor of anchors) {
+                const anchorY = anchor.getBoundingClientRect().top + window.scrollY;
+                if (anchorY > currentY + 10) {
+                    window.scrollTo({
+                        top: anchorY,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+            }
+        }
+
+
+        function scrollToPreviousAnchor() {
+            const anchors = Array.from(document.querySelectorAll('div[name="anchor"]'));
+            const currentY = window.scrollY;
+
+            for (let i = anchors.length - 1; i >= 0; i--) {
+                const anchorY = anchors[i].getBoundingClientRect().top + window.scrollY;
+                if (anchorY < currentY - 10) { // -10 to avoid jumping to the same anchor
+                    window.scrollTo({
+                        top: anchorY,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+            }
+
 
         }
 
