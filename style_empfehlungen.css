@@ -17,18 +17,13 @@ body {
   height:auto;
 }
 
-.bild2 img {
-  max-width: 150px;
-  height:auto;
-}
-
 .bild3 img {
   max-width: 600px;
   height:auto;
 }
 
 .bild4 img {
-  max-width: 410px;
+  max-width: 380px;
   height:auto;
 }
 
@@ -39,6 +34,15 @@ body {
   margin: 0 auto;
 }
 
+.bild6 img {
+  max-width: 200px;
+  height:auto;
+}
+
+.bild7 img {
+  max-width: 110px;
+  height:auto;
+}
 
 
 .columns .column.is-narrow {
