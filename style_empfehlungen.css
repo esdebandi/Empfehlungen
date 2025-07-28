@@ -6,6 +6,16 @@ body {
   background-color: #EFE9DD;
 }
 
+.logo {
+  max-width: 400px;
+  height: auto;
+}
+
+img[alt="Ess-o-Mat Logo"] {
+  max-width: 100%;
+  height: auto;
+}
+
 .bild img {
   max-width: 280px;
   height:auto;
@@ -60,5 +70,3 @@ body {
   height: 2.4em;
   min-height: 150px;
 }
-
-
