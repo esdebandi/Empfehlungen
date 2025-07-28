@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>N-Back Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    #letter {
+      font-size: 80px;
+      margin: 100px 0 20px;
+    }
+    #button {
+      font-size: 24px;
+      padding: 20px 40px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+    #button:active {
+      background: #0056b3;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="letter">-</div>
+<button id="button">Match</button>
+<div id="message"></div>
+
+<script>
+const nBack = 2;
+  const sequenceLength = 20;
+  const matchProportion = 0.2;
+  const intervalMs = 2000;
+
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const sequence = [];
+  const matchIndexes = new Set();
+  const responses = [];
+  let currentIndex = -1;
+
+  const letterDiv = document.getElementById('letter');
+  const messageDiv = document.getElementById('message');
+  const button = document.getElementById('button');
+
+  function getRandomLetter(exclude = null) {
+    let letter;
+    do {
+      letter = letters.charAt(Math.floor(Math.random() * letters.length));
+    } while (letter === exclude);
+    return letter;
+  }
+
+  function generateSequence() {
+    const numMatches = Math.floor((sequenceLength - nBack) * matchProportion);
+    var possibleIndexes = [];
+    for (var i = nBack; i < sequenceLength; i++) {
+      possibleIndexes.push(i);
+    }
+    while (matchIndexes.size < numMatches) {
+      const idx = possibleIndexes[Math.floor(Math.random() * possibleIndexes.length)];
+      matchIndexes.add(idx);
+    }
+
+    for (let i = 0; i < sequenceLength; i++) {
+      if (i < nBack) {
+        sequence[i] = getRandomLetter();
+      } else if (matchIndexes.has(i)) {
+        sequence[i] = sequence[i - nBack];
+      } else {
+        sequence[i] = getRandomLetter(sequence[i - nBack]);
+      }
+    }
+  }
+
+  function isCorrectMatch() {
+    return matchIndexes.has(currentIndex);
+  }
+
+  function showNextLetter() {
+    currentIndex++;
+    if (currentIndex >= sequenceLength) {
+      endTask();
+      return;
+    }
+    letterDiv.textContent = sequence[currentIndex];
+    responses.push({ index: currentIndex, response: false, correct: isCorrectMatch() });
+    messageDiv.textContent = "";
+  }
+
+  button.addEventListener('click', () => {
+    if (currentIndex < 0 || currentIndex >= sequenceLength) return;
+    responses[currentIndex].response = true;
+    responses[currentIndex].correct = isCorrectMatch();
+    messageDiv.textContent = responses[currentIndex].correct ? "✔ Correct" : "✘ Wrong";
+  });
+
+  function endTask() {
+    letterDiv.textContent = "Done!";
+    button.disabled = true;
+    messageDiv.textContent = "Storing results...";
+
+    // Store results into LimeSurvey hidden fields
+    const accuracy = responses.filter(r => r.correct && r.response).length;
+    const totalTargets = matchIndexes.size;
+
+    // LimeSurvey question fields (replace codes with your actual question codes)
+    try {
+      // These must match the question codes in LimeSurvey
+      document.getElementById('answer{SGQ_nback_accuracy}').value = accuracy + "/" + totalTargets;
+      document.getElementById('answer{SGQ_nback_raw}').value = JSON.stringify(sequence);
+      document.getElementById('answer{SGQ_nback_responses}').value = JSON.stringify(responses);
+      messageDiv.textContent = "Results saved. You may continue.";
+    } catch (e) {
+      messageDiv.textContent = "Error saving results.";
+      console.error(e);
+    }
+  }
+
+  generateSequence();
+  setTimeout(() => {
+    showNextLetter();
+    const interval = setInterval(() => {
+      showNextLetter();
+      if (currentIndex >= sequenceLength) clearInterval(interval);
+    }, intervalMs);
+  }, 1000);
+</script>
+
+</body>
+</html>
