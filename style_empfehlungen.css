@@ -70,3 +70,22 @@ img[alt="Ess-o-Mat Logo"] {
   height: 2.4em;
   min-height: 150px;
 }
+
+td.spalte1,
+th.spalte1 {
+  background-color: #d4edda !important;
+  color: #155724 !important;
+}
+
+td.spalte2,
+th.spalte2 {
+  background-color: #fff3cd; /* z.B. gelblich für "mittel" */
+  color: #856404;
+}
+
+td.spalte3,
+th.spalte3 {
+  background-color: #f8d7da; /* rötlich für "hoch" */
+  color: #721c24;
+}
+
